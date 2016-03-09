@@ -1,4 +1,14 @@
-<!--TODO: Change to dropdown with editable types/colors-->
-<?= $form->field($model, 'flag_type')->textInput(['maxlength' => 255]) ?>
+<?php
+use WondersLabCorporation\yii2\flagNotes\models\FlagNote;
+use yii\bootstrap\Html;
 
-<?= $form->field($model, 'flag_description')->textArea() ?>
+if ($model->includeHeader) {
+    echo Html::tag($model->tag, $model->content, ['class' => $model->class, 'id' => $model->id]);
+}
+
+$flagRypeParams = [];
+if ($prompt = $model->prompt) {
+    $flagRypeParams['prompt'] = $prompt;
+}
+echo $form->field($model, 'flag_type')->dropDownList(FlagNote::getFlagTypeTexts(), $flagRypeParams);
+echo $form->field($model, 'flag_description')->textArea();

@@ -7,6 +7,43 @@ use yii\behaviors\TimestampBehavior;
 
 class FlagNote extends \yii\db\ActiveRecord
 {
+    const PRIORITY_HIGHEST = 1;
+    const PRIORITY_HIGH = 2;
+    const PRIORITY_NORMAL = 3;
+    const PRIORITY_LOW = 4;
+    const PRIORITY_LOWEST = 5;
+
+    /**
+     * @var boolean 
+     * if true render header for widget
+     */
+    public $includeHeader = true;
+    /**
+     * @var string 
+     * tag for header container
+     */
+    public $tag = 'h3';
+    /**
+     * @var string 
+     * class for header container
+     */
+    public $class = "";
+    /**
+     * @var string 
+     * id for header container
+     */
+    public $id = "";
+    /**
+     * @var string 
+     * text for header container
+     */
+    public $content;
+    /**
+     * @var string 
+     * text for empty dropdown field `flag_type`
+     */
+    public $prompt;
+    
     /**
      * @return string the associated database table name
      */
@@ -25,6 +62,7 @@ class FlagNote extends \yii\db\ActiveRecord
             [['model_id', 'flag_type', 'created_at', 'updated_at'], 'integer'],
             ['flag_description', 'string'],
             [['model'], 'string', 'max' => 255],
+            ['flag_type', 'in', 'range' => array_keys(self::getFlagTypeTexts())],
             [['model', 'model_id', 'flag_type', 'flag_description'], 'safe'],
         ];
     }
@@ -48,5 +86,26 @@ class FlagNote extends \yii\db\ActiveRecord
                 'class' => TimestampBehavior::className(),
             ],
         ];
+    }
+    
+    public static function getFlagTypeTexts()
+    {
+        return [
+            self::PRIORITY_HIGHEST => Yii::t('flagNotes', 'Highest'),
+            self::PRIORITY_HIGH => Yii::t('flagNotes', 'High'),
+            self::PRIORITY_NORMAL => Yii::t('flagNotes', 'Normal'),
+            self::PRIORITY_LOW => Yii::t('flagNotes', 'Low'),
+            self::PRIORITY_LOWEST => Yii::t('flagNotes', 'Lowest'),
+        ];
+    }
+    
+    public function refillModelAttributes($headerOptions, $options)
+    {
+        foreach ($headerOptions as $key => $headerOption) {
+            $this->{$key} = $headerOption;
+        }
+        foreach ($options as $key => $option) {
+            $this->{$key} = $option;
+        }
     }
 }
