@@ -1,7 +1,5 @@
 <?php
 
-namespace WondersLabCorporation\yii2\flagNotes\migrations;
-
 use yii\db\Schema;
 use yii\db\Migration;
 
