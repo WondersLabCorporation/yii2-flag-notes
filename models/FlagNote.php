@@ -4,7 +4,6 @@ namespace WondersLabCorporation\yii2\flagNotes\models;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
-use WondersLabCorporation\yii2\flagNotes\FlagNotes;
 
 class FlagNote extends \yii\db\ActiveRecord
 {
@@ -31,13 +30,13 @@ class FlagNote extends \yii\db\ActiveRecord
     }
 
     /**
-     * @return array customized attribute labels (name=>label)
+     * @return array attributelabels
      */
     public function attributeLabels()
     {
         return [
-            'flag_type' => FlagNotes::t('messages', 'model_flag_type'),
-            'flag_description' => FlagNotes::t('messages', 'model_flag_description'),
+            'flag_type' => Yii::t('flagNotes', 'Flag Type'),
+            'flag_description' => Yii::t('flagNotes', 'Flag Description'),
         ];
     }
 
