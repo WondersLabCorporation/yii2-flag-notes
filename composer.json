@@ -1,0 +1,21 @@
+{
+  "name": "WondersLabCorporation/yii2-flag-notes",
+  "description": "DB based model flag notes",
+  "type": "yii2-extension",
+  "keywords": ["yii2","extension","flag","notes","behavior","active record"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "wl-sl",
+      "email": "sergey.laktionov@wonderslab.com"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "WondersLabCorporation\\yii2\\flagNotes\\": ""
+    }
+  }
+}
