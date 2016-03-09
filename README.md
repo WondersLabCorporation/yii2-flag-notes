@@ -19,8 +19,8 @@ Add to your composer.json file
 
 Either run
 
-```php 
-composer.phar require --prefer-dist WondersLabCorporation/yii2-flag-notes "*"
+``` 
+php composer.phar require --prefer-dist WondersLabCorporation/yii2-flag-notes "*"
 ```
 
 or add
