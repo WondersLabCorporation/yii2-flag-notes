@@ -31,6 +31,12 @@ or add
 
 to the require section of your `composer.json` file.
 
+To create table in your DB run
+
+```
+./yii migrate --migrationPath="@vendor/WondersLabCorporation/yii2-flag-notes/migrations"
+```
+
 Usage
 ------------
 
@@ -51,8 +57,10 @@ public function behaviors()
 Add `FlagNotes` somewhere in you application, for example in editing form.
 
 ```php
-echo FlagNotes::widget([
+use WondersLabCorporation\yii2\flagNotes\FlagNotes;
+
+<?= FlagNotes::widget([
     'model' => $model,
     'form' => $form
-]);
+]) ?>
 ```
