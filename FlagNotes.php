@@ -25,7 +25,7 @@ class FlagNotes extends Widget
     
     private static function availableHeaderOptions()
     {
-        return ['includeHeader', 'tag', 'class', 'id', 'content'];
+        return ['includeHeader', 'headerTag', 'headerClass', 'headerId', 'headerContent'];
     }
     
     private static function availableOptions()

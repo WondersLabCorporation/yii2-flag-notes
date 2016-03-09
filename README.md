@@ -64,10 +64,10 @@ use WondersLabCorporation\yii2\flagNotes\FlagNotes;
     'form' => $form,
     'headerOptions' => [
         'includeHeader' => true,    //if true render header for widget
-        'tag' => 'h3',    //tag for header container
-        'class' => 'your_class',    //class for header container
-        'tag' => 'your_id',    //id for header container
-        'content' => Yii::t('category', 'Flag Notes'),    //text for header container
+        'headerTag' => 'h3',    //tag for header container
+        'headerClass' => 'your_class',    //class for header container
+        'headerId' => 'your_id',    //id for header container
+        'headerContent' => Yii::t('category', 'Flag Notes'),    //text for header container
     ],
     'options' => [
         'prompt' => Yii::t('category', 'Select Flag Type'),    //text for empty dropdown field `flag_type`

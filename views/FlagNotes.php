@@ -3,7 +3,7 @@ use WondersLabCorporation\yii2\flagNotes\models\FlagNote;
 use yii\bootstrap\Html;
 
 if ($model->includeHeader) {
-    echo Html::tag($model->tag, $model->content, ['class' => $model->class, 'id' => $model->id]);
+    echo Html::tag($model->headerTag, $model->headerContent, ['class' => $model->headerClass, 'id' => $model->headerId]);
 }
 
 $flagRypeParams = [];

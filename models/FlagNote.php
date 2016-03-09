@@ -22,22 +22,22 @@ class FlagNote extends \yii\db\ActiveRecord
      * @var string 
      * tag for header container
      */
-    public $tag = 'h3';
+    public $headerTag = 'h3';
     /**
      * @var string 
      * class for header container
      */
-    public $class = "";
+    public $headerClass = "";
     /**
      * @var string 
      * id for header container
      */
-    public $id = "";
+    public $headerId = "";
     /**
      * @var string 
      * text for header container
      */
-    public $content;
+    public $headerContent;
     /**
      * @var string 
      * text for empty dropdown field `flag_type`
