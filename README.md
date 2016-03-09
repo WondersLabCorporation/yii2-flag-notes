@@ -6,6 +6,17 @@ Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
+Add to your composer.json file
+
+```php 
+"repositories": [
+        {
+            "url": "https://github.com/WondersLabCorporation/yii2-flag-notes.git",
+            "type": "git"
+        }
+    ]
+```
+
 Either run
 
 ```php 
