@@ -6,14 +6,46 @@ use yii\base\Widget;
 use yii\base\Exception;
 use WondersLabCorporation\yii2\flagNotes\models\FlagNote;
 
-
+// TODO: Add possibility to update data from a separate page without embedding it to another form
 class FlagNotes extends Widget
 {
     public $model;
     public $form;
+
+    public $flagNoteModelClass = 'WondersLabCorporation\yii2\flagNotes\models\FlagNote';
+
+    /**
+     * @var boolean Whether to show header
+     */
+    public $includeHeader = true;
+    /**
+     * @var string
+     * tag for header container
+     */
+    public $headerTag = 'h3';
+    /**
+     * @var string
+     * class for header container
+     */
+//    public $headerClass = "";
+    /**
+     * @var string
+     * id for header container
+     */
+//    public $headerId = "";
+    /**
+     * @var string
+     * text for header container
+     */
+//    public $headerContent;
+    /**
+     * @var string
+     * text for empty dropdown field `flag_type`
+     */
+    public $prompt;
     
     /**
-     * @var array the options for Widget.
+     * @var array options for the Widget.
      * @see self::availableHeaderOptions() for list of available options.
      */
     public $headerOptions = [];
@@ -22,36 +54,10 @@ class FlagNotes extends Widget
      * @see self::availableOptions() for list of available options.
      */
     public $options = [];
-    
-    private static function availableHeaderOptions()
-    {
-        return ['includeHeader', 'headerTag', 'headerClass', 'headerId', 'headerContent'];
-    }
-    
-    private static function availableOptions()
-    {
-        return ['prompt'];
-    }
-    
-    private function checkAvailabilityProperties()
-    {
-        foreach (array_keys($this->headerOptions) as $headerOption) {
-            if (!in_array($headerOption, self::availableHeaderOptions())) {
-                throw new Exception('HeaderOption ' . $headerOption . ' is not available');
-            }
-        }
-        foreach (array_keys($this->options) as $option) {
-            if (!in_array($option, self::availableOptions())) {
-                throw new Exception('Option ' . $option . ' is not available');
-            }
-        }
-    }
 
     public function run()
     {
-        $this->checkAvailabilityProperties();
-        
-        $model = new FlagNote;
+        $model = new $this->flagNoteModelClass;
 
         if(!$this->model->isNewRecord)
         {
@@ -64,10 +70,8 @@ class FlagNotes extends Widget
                 $model = $flag_note;
             }
         }
-
-        $model->refillModelAttributes($this->headerOptions, $this->options);
         
-        return $this->render('FlagNotes', [
+        return $this->render('flag', [
             'model' => $model,
             'form' => $this->form,
         ]);
