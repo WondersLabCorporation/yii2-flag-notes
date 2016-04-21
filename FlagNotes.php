@@ -25,21 +25,6 @@ class FlagNotes extends Widget
     public $headerTag = 'h3';
     /**
      * @var string
-     * class for header container
-     */
-//    public $headerClass = "";
-    /**
-     * @var string
-     * id for header container
-     */
-//    public $headerId = "";
-    /**
-     * @var string
-     * text for header container
-     */
-//    public $headerContent;
-    /**
-     * @var string
      * text for empty dropdown field `flag_type`
      */
     public $prompt;
