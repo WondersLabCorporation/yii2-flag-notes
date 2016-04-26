@@ -14,7 +14,7 @@ class FlagNote extends \yii\db\ActiveRecord
     const PRIORITY_LOWEST = 5;
 
 
-    
+
     /**
      * @return string the associated database table name
      */
@@ -44,8 +44,8 @@ class FlagNote extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'flag_type' => Yii::t('flagNotes', 'Flag Type'),
-            'flag_description' => Yii::t('flagNotes', 'Flag Description'),
+            'flag_type' => Yii::t('flagNotes', 'Priority'),
+            'flag_description' => Yii::t('flagNotes', 'Comments'),
         ];
     }
 
