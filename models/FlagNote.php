@@ -13,8 +13,8 @@ class FlagNote extends \yii\db\ActiveRecord
     const PRIORITY_LOW = 4;
     const PRIORITY_LOWEST = 5;
 
-
-
+    public $descriptionLength = 25;
+    
     /**
      * @return string the associated database table name
      */
@@ -31,7 +31,7 @@ class FlagNote extends \yii\db\ActiveRecord
         return [
             [['model', 'model_id'], 'required'],
             [['model_id', 'flag_type', 'created_at', 'updated_at'], 'integer'],
-            ['flag_description', 'string'],
+            ['flag_description', 'string', 'max' => $this->descriptionLength],
             [['model'], 'string', 'max' => 255],
             ['flag_type', 'in', 'range' => array_keys(self::getFlagTypeTexts())],
             [['model', 'model_id', 'flag_type', 'flag_description'], 'safe'],
